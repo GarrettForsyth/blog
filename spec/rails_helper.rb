@@ -81,7 +81,7 @@ RSpec.configure do |config|
       MSG
     end
 
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with(:truncation, except: %w[ar_internal_metadata])
   end
 
   config.before(:each) do
@@ -97,7 +97,7 @@ RSpec.configure do |config|
       # Driver is probably for an external browser with an app
       # under test that does *not* share a database connection with the
       # specs, so use truncation strategy.
-      DatabaseCleaner.strategy = :truncation
+      DatabaseCleaner.strategy = :truncation, { except: %w[ar_internal_metadata] }
     end
   end
 

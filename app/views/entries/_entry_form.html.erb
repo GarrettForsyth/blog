@@ -1,0 +1,14 @@
+<%= form_with model: @entry, id: 'new-entry-form', local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <ul>
+    <li>
+      <%= f.text_field :title, placeholder: "Entry title.." %>
+    </li>
+    <li>
+      <%= f.text_field :abstract, placeholder: "Entry abstract.." %>
+    </li>
+    <li>
+      <%= f.submit 'Create' %>
+    </li>
+  </ul>
+<% end %>

@@ -19,6 +19,7 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'factory_bot_rails'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+  gem 'irb', require: false
   gem 'rspec-rails', '~> 4.0.0'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'shoulda-matchers-cucumber'
