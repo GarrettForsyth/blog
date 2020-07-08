@@ -8,16 +8,19 @@ Scenario: create a blog with one section
 
     When I go to the 'new entry' page
     And I fill in the following:
-      | entry[title]             | A Polarized Opening for the Black Pieces                                 |
-      | entry[abstract]          | The sicilian defence is a good choice to play in must win situations     |
-      #| entry[sections][content] | Statistics show silician leads to fewer draws compared to other openings. |
+      | entry[title]             | A Polarized Opening for the Black Pieces                                  |
+      | entry[abstract]          | The sicilian defence is a good choice to play in must win situations      |
+      | entry[sections_attributes][0][content] | Statistics show silician leads to fewer draws compared to other openings. |
     And I press 'Create'
-    Then then an entry is created with the following:
-      | title             | A Polarized Opening for the Black Pieces                                  |
-      | abstract          | The sicilian defence is a good choice to play in must win situations      |
+    Then an entry is created with the following:
+      | title    | A Polarized Opening for the Black Pieces                             |
+      | abstract | The sicilian defence is a good choice to play in must win situations |
+    Then a section is created with the following:
+      | content | Statistics show silician leads to fewer draws compared to other openings. |
+      | entry   | A Polarized Opening for the Black Pieces                                  |
     And I should be on "A Polarized Opening for the Black Pieces"'s entry page
 
-Scenario Outline: create an invalid blog with one section
+Scenario Outline: create an invalid blog
 
     When I go to the 'new entry' page
     And I fill in the following:

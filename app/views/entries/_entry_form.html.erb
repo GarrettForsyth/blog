@@ -7,6 +7,9 @@
     <li>
       <%= f.text_field :abstract, placeholder: "Entry abstract.." %>
     </li>
+    <%= f.fields_for :sections do |f2| %>
+      <%= render 'sections_form', f: f2 %>
+    <% end %>
     <li>
       <%= f.submit 'Create' %>
     </li>

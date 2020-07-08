@@ -1,14 +1,13 @@
-Then('then an entry is created with the following:') do |entry_attributes|
+Then('an entry is created with the following:') do |entry_attributes|
   # Find the entry by the first listed attribute
   first_attribute = entry_attributes.rows_hash.first[0]
   first_value = entry_attributes.rows_hash.first[1]
   entry = Entry.find_by(Hash[first_attribute, first_value])
 
   # If the entry exists, check that its remaining attributes match expected
-  unless entry.nil?
-    entry_attributes.rows_hash.each do |attribute, value|
-      expect(entry[attribute.to_s]).to eq(value)
-    end
+  expect(entry).to_not be_nil
+  entry_attributes.rows_hash.each do |attribute, value|
+    expect(entry[attribute.to_s]).to eq(value)
   end
 end
 

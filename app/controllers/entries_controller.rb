@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
   def new
     @entry = Entry.new
+    @entry.sections.build
   end
 
   def create
@@ -19,7 +20,8 @@ class EntriesController < ApplicationController
   def entry_attributes
     params.require(:entry).permit(
       :title,
-      :abstract
+      :abstract,
+      sections_attributes: %i[id content]
     )
   end
 end
