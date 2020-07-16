@@ -27,3 +27,7 @@ end
 Then('I should see the {string}') do |id|
   expect(page).to have_css("##{id}")
 end
+
+Then('I should see the image {string}') do |image_name|
+  expect(page).to have_image image_name unless image_name.blank?
+end

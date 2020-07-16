@@ -9,4 +9,5 @@ Feature: a reader visits the site
     Given there are 20 blog entries
     When I go to the 'home' page 
     Then I should see "Garrett Forsyth"
+    And I should see the image "blog_profile_image"
     And I should see the 10 most recent blog entries
