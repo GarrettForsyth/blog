@@ -1,6 +1,4 @@
 <%= image_tag @entry.display_title_image if @entry.image.attached? %> 
 <h2> <%= @entry.title %> </h2>
 <p> <%= @entry.abstract %> </p>
-<% @entry.sections.each do |section| %> 
-  <p> <%= section.content %> </p>
-<% end %> 
+<%= render @entry.sections %> 

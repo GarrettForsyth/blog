@@ -5,6 +5,16 @@ Given('there is a section with the following:') do |section_attributes|
       # Expect to find the entry by title
       entry = Entry.find_by(title: value.to_s)
       section.entry = entry
+    elsif attribute == 'image'
+      section.image.attach(
+        io: File.open(Rails.root.join(
+                        'spec',
+                        'fixtures',
+                        value.gsub('"', '')
+                      )),
+        filename: value,
+        content_type: 'image/jpg'
+      )
     else
       section[attribute.to_s] = value
     end

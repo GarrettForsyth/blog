@@ -7,6 +7,13 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(entry_attributes)
     @entry.image.attach(params[:entry][:image])
+
+    # attach each section image
+    entry_attributes[:sections_attributes].to_h.each_with_index do |(_k, v), i|
+      section = @entry.sections[i]
+      section&.image&.attach(v[:image])
+    end
+
     if @entry.save
       redirect_to @entry
     else
@@ -29,7 +36,7 @@ class EntriesController < ApplicationController
       :title,
       :abstract,
       :image,
-      sections_attributes: %i[id content _destroy]
+      sections_attributes: %i[id content image _destroy]
     )
   end
 end

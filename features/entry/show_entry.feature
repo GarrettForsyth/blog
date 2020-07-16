@@ -13,6 +13,7 @@ Scenario: a reader visits an entry's show page
   And there is a section with the following:
     | content | Opening theory.                          |
     | entry   | A Polarized Opening for the Black Pieces |
+    | image   | elephant-stare.jpg                       |
   And there is a section with the following:
     | content | Middle game theory.                      |
     | entry   | A Polarized Opening for the Black Pieces |
@@ -24,5 +25,6 @@ Scenario: a reader visits an entry's show page
   And I should see "The sicilian defence is a good choice to play in must win situations"
   And I should see the image 'introspective-elephant'
   And I should see "Opening theory."
+  And I should see the image 'elephant-stare.jpg'
   And I should see "Middle game theory."
   And I should see "Endgame theory."
