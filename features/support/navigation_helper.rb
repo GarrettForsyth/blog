@@ -7,6 +7,8 @@ module NavigationHelper
       entry_path(@entry)
     when /index entry/
       entries_path
+    when /home/
+      root_path
     end
   end
 
