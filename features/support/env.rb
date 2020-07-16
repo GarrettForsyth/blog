@@ -6,6 +6,8 @@
 
 require 'cucumber/rails'
 
+Capybara.javascript_driver = :selenium_headless
+
 # frozen_string_literal: true
 
 # Capybara defaults to CSS3 selectors rather than XPath.

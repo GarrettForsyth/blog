@@ -21,7 +21,7 @@ class EntriesController < ApplicationController
     params.require(:entry).permit(
       :title,
       :abstract,
-      sections_attributes: %i[id content]
+      sections_attributes: %i[id content _destroy]
     )
   end
 end

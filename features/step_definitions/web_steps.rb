@@ -12,6 +12,10 @@ When('I press {string}') do |button|
   click_button button
 end
 
+When('I press (the ){string} link') do |link|
+  click_link link
+end
+
 Then('I should be on the {string} page') do |page_name|
   expect(page.current_path).to eq(path_to(page_name))
 end

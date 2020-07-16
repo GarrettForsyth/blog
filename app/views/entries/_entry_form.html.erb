@@ -2,14 +2,21 @@
   <%= render 'shared/error_messages', object: f.object %>
   <ul>
     <li>
+      <%= f.label :title %>
       <%= f.text_field :title, placeholder: "Entry title.." %>
     </li>
     <li>
+      <%= f.label :abstract %>
       <%= f.text_field :abstract, placeholder: "Entry abstract.." %>
     </li>
-    <%= f.fields_for :sections do |f2| %>
-      <%= render 'sections_form', f: f2 %>
-    <% end %>
+    <div id="section-fields-container">
+      <%= f.fields_for :sections do |f2| %>
+        <%= render 'section_fields', f: f2 %>
+      <% end %>
+    </div>
+    <li>
+      <%= link_to_add_fields 'Add new section', f, :sections %>
+    </li>
     <li>
       <%= f.submit 'Create' %>
     </li>
