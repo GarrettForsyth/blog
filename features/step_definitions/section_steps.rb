@@ -1,3 +1,17 @@
+Given('there is a section with the following:') do |section_attributes|
+  section = Section.new
+  section_attributes.rows_hash.each do |attribute, value|
+    if attribute == 'entry'
+      # Expect to find the entry by title
+      entry = Entry.find_by(title: value.to_s)
+      section.entry = entry
+    else
+      section[attribute.to_s] = value
+    end
+  end
+  section.save
+end
+
 Then('a section is created with the following:') do |section_attributes|
   # Find the section by the first listed attribute
   first_attribute = section_attributes.rows_hash.first[0]

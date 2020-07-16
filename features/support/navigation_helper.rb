@@ -3,6 +3,8 @@ module NavigationHelper
     case page_name
     when /new entry/
       new_entry_path
+    when /show entry/
+      entry_path(@entry)
     end
   end
 

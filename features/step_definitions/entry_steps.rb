@@ -1,3 +1,11 @@
+Given('there is an entry with the following:') do |entry_attributes|
+  @entry = Entry.new
+  entry_attributes.rows_hash.each do |attribute, value|
+    @entry[attribute.to_s] = value
+  end
+  @entry.save
+end
+
 Then('an entry is created with the following:') do |entry_attributes|
   # Find the entry by the first listed attribute
   first_attribute = entry_attributes.rows_hash.first[0]

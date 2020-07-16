@@ -1,0 +1,5 @@
+<h2> <%= @entry.title %> </h2>
+<p> <%= @entry.abstract %> </p>
+<% @entry.sections.each do |section| %> 
+  <p> <%= section.content %> </p>
+<% end %> 
