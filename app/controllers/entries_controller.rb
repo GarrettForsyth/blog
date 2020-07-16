@@ -17,6 +17,10 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
   end
 
+  def index
+    @entries = Entry.all
+  end
+
   private
 
   def entry_attributes

@@ -1,3 +1,7 @@
+Given('there are {int} blog entries') do |number_of_entries|
+  number_of_entries.times { FactoryBot.create(:entry) }
+end
+
 Given('there is an entry with the following:') do |entry_attributes|
   @entry = Entry.new
   entry_attributes.rows_hash.each do |attribute, value|
@@ -26,4 +30,12 @@ end
 
 Then('an entry is not created') do
   expect(Entry.all).to be_empty
+end
+
+Then('I should see all the blog entries') do
+  entries = Entry.all
+  entries.each do |entry|
+    expect(page).to have_content(entry.title)
+    expect(page).to have_content(entry.abstract)
+  end
 end

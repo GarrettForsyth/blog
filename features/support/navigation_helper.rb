@@ -5,6 +5,8 @@ module NavigationHelper
       new_entry_path
     when /show entry/
       entry_path(@entry)
+    when /index entry/
+      entries_path
     end
   end
 

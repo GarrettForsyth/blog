@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :section do
-    content { "MyText" }
+    content { Faker::Lorem.sentence }
+    association :entry, factory: :entry
   end
 end
