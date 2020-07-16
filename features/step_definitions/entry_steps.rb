@@ -5,7 +5,19 @@ end
 Given('there is an entry with the following:') do |entry_attributes|
   @entry = Entry.new
   entry_attributes.rows_hash.each do |attribute, value|
-    @entry[attribute.to_s] = value
+    if attribute == 'image'
+      @entry.image.attach(
+        io: File.open(Rails.root.join(
+                        'spec',
+                        'fixtures',
+                        value.gsub('"', '')
+                      )),
+        filename: value,
+        content_type: 'image/jpg'
+      )
+    else
+      @entry[attribute.to_s] = value
+    end
   end
   @entry.save
 end

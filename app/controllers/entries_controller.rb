@@ -6,6 +6,7 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.new(entry_attributes)
+    @entry.image.attach(params[:entry][:image])
     if @entry.save
       redirect_to @entry
     else
@@ -27,6 +28,7 @@ class EntriesController < ApplicationController
     params.require(:entry).permit(
       :title,
       :abstract,
+      :image,
       sections_attributes: %i[id content _destroy]
     )
   end

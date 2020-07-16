@@ -12,7 +12,8 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -45,5 +46,6 @@ group :test do
 end
 
 group :production do
+  gem 'aws-sdk-s3', '~> 1'
   gem 'pg', '~> 1.2.3'
 end
