@@ -26,7 +26,7 @@ class EntriesController < ApplicationController
   end
 
   def index
-    @entries = Entry.all
+    @entries = Entry.paginate(page: params[:page])
   end
 
   def edit

@@ -4,6 +4,6 @@ class StaticPagesController < ApplicationController
   end
 
   def admin
-    @entries = Entry.all
+    @entries = Entry.paginate(page: params[:page])
   end
 end
