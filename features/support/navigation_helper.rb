@@ -1,14 +1,20 @@
 module NavigationHelper
   def path_to(page_name)
     case page_name
-    when /new entry/
+    when 'new entry'
       new_entry_path
-    when /show entry/
+    when 'show entry'
       entry_path(@entry)
-    when /index entry/
+    when 'index entry'
       entries_path
-    when /home/
+    when 'home'
       root_path
+    when 'edit entry'
+      edit_entry_path(@edit_entry)
+    when 'admin'
+      admin_path
+    else
+      raise Exception, "No page matches #{page_name}"
     end
   end
 

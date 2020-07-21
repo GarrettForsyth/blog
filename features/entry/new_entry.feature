@@ -11,7 +11,7 @@ Scenario: create a blog with one section
       | Title    | A Polarized Opening for the Black Pieces                                  |
       | Abstract | The sicilian defence is a good choice to play in must win situations      |
       | Content  | Statistics show silician leads to fewer draws compared to other openings. |
-    And I press 'Create'
+    And I press 'Submit Entry'
     Then an entry is created with the following:
       | title    | A Polarized Opening for the Black Pieces                             |
       | abstract | The sicilian defence is a good choice to play in must win situations |
@@ -34,7 +34,7 @@ Scenario: create a blog with three sections
     And I press the 'Add new section' link
     And I fill in the new section with the following:
       | Content | Endgame theory. |
-    And I press 'Create'
+    And I press 'Submit Entry'
     Then an entry is created with the following:
       | title    | A Polarized Opening for the Black Pieces                             |
       | abstract | The sicilian defence is a good choice to play in must win situations |
@@ -63,7 +63,7 @@ Scenario: create a blog with three sections and then delete the last section
     And I fill in the new section with the following:
       | Content | Endgame theory. |
     And I delete section 3
-    And I press 'Create'
+    And I press 'Submit Entry'
     Then an entry is created with the following:
       | title    | A Polarized Opening for the Black Pieces                             |
       | abstract | The sicilian defence is a good choice to play in must win situations |
@@ -92,7 +92,7 @@ Scenario: create a blog with three sections and then delete the middle section
     And I fill in the new section with the following:
       | Content | Endgame theory. |
     And I delete section 2
-    And I press 'Create'
+    And I press 'Submit Entry'
     Then an entry is created with the following:
       | title    | A Polarized Opening for the Black Pieces                             |
       | abstract | The sicilian defence is a good choice to play in must win situations |
@@ -121,7 +121,7 @@ Scenario: create a blog with three sections and then delete the first section
     And I fill in the new section with the following:
       | Content | Endgame theory. |
     And I delete section 1
-    And I press 'Create'
+    And I press 'Submit Entry'
     Then an entry is created with the following:
       | title    | A Polarized Opening for the Black Pieces                             |
       | abstract | The sicilian defence is a good choice to play in must win situations |
@@ -151,7 +151,7 @@ Scenario: create a blog with three sections and then delete the first two sectio
       | Content | Endgame theory. |
     And I delete section 1
     And I delete section 1
-    And I press 'Create'
+    And I press 'Submit Entry'
     Then an entry is created with the following:
       | title    | A Polarized Opening for the Black Pieces                             |
       | abstract | The sicilian defence is a good choice to play in must win situations |
@@ -180,7 +180,7 @@ Scenario: create a blog, add a section then remove a section finally add a new s
     And I press the 'Add new section' link
     And I fill in the new section with the following:
       | Content | Endgame theory. |
-    And I press 'Create'
+    And I press 'Submit Entry'
     Then an entry is created with the following:
       | title    | A Polarized Opening for the Black Pieces                             |
       | abstract | The sicilian defence is a good choice to play in must win situations |
@@ -203,7 +203,7 @@ Scenario Outline: create an invalid blog
     And I fill in the following:
       | Title             | <title>    |
       | Abstract          | <abstract> |
-    And I press 'Create'
+    And I press 'Submit Entry'
     Then I should see the 'new-entry-form'
     And I should see "<error>"
 

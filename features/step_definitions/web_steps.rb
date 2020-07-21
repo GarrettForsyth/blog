@@ -24,6 +24,10 @@ Then('I should see {string}') do |text|
   expect(page).to have_content(text)
 end
 
+Then('I should not see {string}') do |text|
+  expect(page).to_not have_content(text)
+end
+
 Then('I should see the {string}') do |id|
   expect(page).to have_css("##{id}")
 end

@@ -1,3 +1,19 @@
-<%= image_tag entry.display_title_image if entry.image.attached? %> 
-<h5> <%= entry.title %> </h5>
-<p> <%= entry.abstract %> </p>
+<div class="entry">
+  <%= image_tag entry.display_title_image if entry.image.attached? %> 
+  <div class="entry-title">
+    <%= entry.title %>
+  </div>
+  <div class="entry-abstract">
+    <%= entry.abstract %>
+  </div>
+  <% if controller.controller_name == 'static_pages' && controller.action_name == 'admin' %> 
+    <%= link_to 'delete entry',
+                entry, method: :delete,
+                class: 'delete-entry-btn',
+                data: { confirm: "Are you sure?" } 
+    %> 
+
+    <%= link_to 'edit entry', edit_entry_path(entry),class: 'edit-entry-btn' %> 
+  <% end %> 
+
+</div>

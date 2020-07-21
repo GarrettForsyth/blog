@@ -1,5 +1,5 @@
 class Entry < ApplicationRecord
-  has_many :sections
+  has_many :sections, dependent: :destroy
   has_one_attached :image
   accepts_nested_attributes_for :sections, allow_destroy: true
 

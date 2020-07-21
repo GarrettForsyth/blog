@@ -29,6 +29,26 @@ class EntriesController < ApplicationController
     @entries = Entry.all
   end
 
+  def edit
+    @entry = Entry.find(params[:id])
+  end
+
+  def update
+    @entry = Entry.find(params[:id])
+    if @entry.update(entry_attributes)
+      flash[:success] = 'Entry updated.'
+      redirect_to @entry
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    Entry.find(params[:id]).destroy
+    flash[:success] = 'Entry deleted.'
+    redirect_to admin_path
+  end
+
   private
 
   def entry_attributes

@@ -9,5 +9,6 @@ Scenario: a reader visits the entry's index page
     Given there are 20 blog entries
     When I go to the 'index entry' page
     Then I should see all the blog entries
-
+    And I should not see 'delete entry'
+    And I should not see 'edit entry' 
 
