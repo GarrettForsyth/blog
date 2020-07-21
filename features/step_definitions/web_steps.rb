@@ -2,6 +2,15 @@ When('I go to the {string} page') do |page_name|
   visit path_to page_name
 end
 
+When('I go to the {string} page with authorization') do |page_name|
+  host = Capybara.current_session.server.host
+  port = Capybara.current_session.server.port
+  name = ENV['HTTP_AUTH_NAME']
+  password = ENV['HTTP_AUTH_PASSWORD']
+  url = "http://#{name}:#{password}@#{host}:#{port}#{path_to page_name}"
+  page.driver.visit url
+end
+
 When('I fill in the following:') do |fields|
   fields.rows_hash.each do |name, value|
     fill_in name, with: value

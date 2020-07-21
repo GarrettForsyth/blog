@@ -7,17 +7,17 @@ Feature: an admin fixes mistakes on published entries
   @javascript
   Scenario: an admin deletes a blog entry
     Given there are 20 blog entries
-    When I go to the 'admin' page
+    When I go to the 'admin' page with authorization
     And I delete entry 1
     Then there are now 19 blog entries
     And the deleted entry is not among them
     And I should see 'Entry deleted.'
 
+  @javascript
   Scenario: an admin edits the title of an entry
     Given there are 20 blog entries
-    When I go to the 'admin' page
+    When I go to the 'admin' page with authorization
     And I edit entry 1
-    Then I should be on the 'edit entry' page
     When I fill in the following:
       | Title | How to Edit Titles |
     And I press 'Submit Entry'

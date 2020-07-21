@@ -4,9 +4,10 @@ Feature: create a new blog entry
   I want to create a blog entry about chess
   To share my thoughts on the sicilian defence
 
+@javascript
 Scenario: create a blog with one section
 
-    When I go to the 'new entry' page
+    When I go to the 'new entry' page with authorization
     And I fill in the following:
       | Title    | A Polarized Opening for the Black Pieces                                  |
       | Abstract | The sicilian defence is a good choice to play in must win situations      |
@@ -23,7 +24,7 @@ Scenario: create a blog with one section
 @javascript
 Scenario: create a blog with three sections
 
-    When I go to the 'new entry' page
+    When I go to the 'new entry' page with authorization
     And I fill in the following:
       | Title     | A Polarized Opening for the Black Pieces                              |
       | Abstract  | The sicilian defence is a good choice to play in must win situations  |
@@ -51,7 +52,7 @@ Scenario: create a blog with three sections
 
 @javascript
 Scenario: create a blog with three sections and then delete the last section
-    When I go to the 'new entry' page
+    When I go to the 'new entry' page with authorization
     And I fill in the following:
       | Title     | A Polarized Opening for the Black Pieces                              |
       | Abstract  | The sicilian defence is a good choice to play in must win situations  |
@@ -80,7 +81,7 @@ Scenario: create a blog with three sections and then delete the last section
 
 @javascript
 Scenario: create a blog with three sections and then delete the middle section
-    When I go to the 'new entry' page
+    When I go to the 'new entry' page with authorization
     And I fill in the following:
       | Title     | A Polarized Opening for the Black Pieces                              |
       | Abstract  | The sicilian defence is a good choice to play in must win situations  |
@@ -109,7 +110,7 @@ Scenario: create a blog with three sections and then delete the middle section
 
 @javascript
 Scenario: create a blog with three sections and then delete the first section
-    When I go to the 'new entry' page
+    When I go to the 'new entry' page with authorization
     And I fill in the following:
       | Title     | A Polarized Opening for the Black Pieces                              |
       | Abstract  | The sicilian defence is a good choice to play in must win situations  |
@@ -138,7 +139,7 @@ Scenario: create a blog with three sections and then delete the first section
 
 @javascript
 Scenario: create a blog with three sections and then delete the first two sections
-    When I go to the 'new entry' page
+    When I go to the 'new entry' page with authorization
     And I fill in the following:
       | Title     | A Polarized Opening for the Black Pieces                              |
       | Abstract  | The sicilian defence is a good choice to play in must win situations  |
@@ -168,7 +169,7 @@ Scenario: create a blog with three sections and then delete the first two sectio
 
 @javascript
 Scenario: create a blog, add a section then remove a section finally add a new section
-    When I go to the 'new entry' page
+    When I go to the 'new entry' page with authorization
     And I fill in the following:
       | Title     | A Polarized Opening for the Black Pieces                              |
       | Abstract  | The sicilian defence is a good choice to play in must win situations  |
@@ -196,10 +197,10 @@ Scenario: create a blog, add a section then remove a section finally add a new s
     And I should be on "A Polarized Opening for the Black Pieces"'s entry page
 
 
-
+@javascript
 Scenario Outline: create an invalid blog
 
-    When I go to the 'new entry' page
+    When I go to the 'new entry' page with authorization
     And I fill in the following:
       | Title             | <title>    |
       | Abstract          | <abstract> |
