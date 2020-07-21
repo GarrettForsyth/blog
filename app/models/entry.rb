@@ -6,6 +6,8 @@ class Entry < ApplicationRecord
   validates :title, presence: true
   validates :abstract, presence: true
 
+  default_scope -> { order(created_at: :desc) }
+
   def display_title_image
     image.variant(resize_to_limit: [2000, 2000])
   end
