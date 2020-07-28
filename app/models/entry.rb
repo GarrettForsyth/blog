@@ -12,6 +12,10 @@ class Entry < ApplicationRecord
     image.variant(resize_to_limit: [2000, 2000])
   end
 
+  def display_thumb_nail
+    image.variant(resize_to_limit: [500, 500])
+  end
+
   def self.recent_entries
     Entry.order('created_at desc').limit(10)
   end

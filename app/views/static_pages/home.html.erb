@@ -2,4 +2,7 @@
 <h1>Garrett Forsyth</h1>
 
 <%= link_to 'View All Entries', entries_path %> 
-<%= render @recent_entries %> 
+
+<ol class="entries-list">
+  <%= render @recent_entries %> 
+</ol>
