@@ -8,8 +8,8 @@ class Entry < ApplicationRecord
 
   default_scope -> { order(created_at: :desc) }
 
-  def display_title_image
-    image.variant(resize_to_limit: [2000, 2000])
+  def display_image
+    image.variant(resize_to_limit: [1200, 700])
   end
 
   def display_thumb_nail

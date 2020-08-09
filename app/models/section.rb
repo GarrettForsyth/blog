@@ -3,6 +3,6 @@ class Section < ApplicationRecord
   has_one_attached :image
 
   def display_image
-    image.variant(resize_to_limit: [2000, 2000])
+    image.variant(resize_to_limit: [1200, 700])
   end
 end

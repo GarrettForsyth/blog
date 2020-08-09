@@ -3,7 +3,7 @@
   <ul>
     <li>
       <%= f.label :title %>
-      <%= f.text_field :title, placeholder: "Entry title.." %>
+      <%= f.text_field :title, class: "title-field", placeholder: "Entry title.." %>
     </li>
     <li>
       <%= f.label :title_image %> 
@@ -11,7 +11,7 @@
     </li>
     <li>
       <%= f.label :abstract %>
-      <%= f.text_field :abstract, placeholder: "Entry abstract.." %>
+      <%= f.text_area :abstract, class: "abstract-field", placeholder: "Entry abstract.." %>
     </li>
     <div id="section-fields-container">
       <%= f.fields_for :sections do |f2| %>
@@ -22,7 +22,7 @@
       <%= link_to_add_fields 'Add new section', f, :sections %>
     </li>
     <li>
-      <%= f.submit 'Submit Entry' %>
+      <%= f.submit 'Submit Entry', class: 'submit-btn' %>
     </li>
   </ul>
 <% end %>
