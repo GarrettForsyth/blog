@@ -1,6 +1,25 @@
 // Place all the styles related to the Entries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+$max-width: 1200px;
+
+.container {
+  max-width: $max-width;
+  margin: auto;  
+  text-align: center;
+  tr {
+    width: 100%;
+  }
+  td {
+    width: 20%;
+    display: table-cell;
+    padding: 0px 30px 10px 30px;
+  }
+}
+
+.hidden {
+  display: none;
+}
 
 ul {
   list-style: none;
@@ -16,6 +35,12 @@ input {
 
 textarea {
   width: 100%;
+}
+
+.profile {
+  margin: auto;
+  padding: 30px 0px 0px 10px;
+  text-align: center;
 }
 
 .title-field {
@@ -48,7 +73,7 @@ textarea {
 }
 
 .main-container {
-  max-width: 1200px;
+  max-width: $max-width;
   margin: auto;
 }
 
