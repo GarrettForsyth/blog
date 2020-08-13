@@ -5,7 +5,10 @@ class EntriesController < ApplicationController
 
   def new
     @entry = Entry.new
-    @entry.sections.build
+    @section = Section.new
+    @entry.sections << @section
+    @code_snippet = CodeSnippet.new
+    @section.code_snippet = @code_snippet
   end
 
   def create
@@ -60,7 +63,7 @@ class EntriesController < ApplicationController
       :title,
       :abstract,
       :image,
-      sections_attributes: %i[id content image _destroy]
+      sections_attributes: [:id, :content, :image, :_destroy, code_snippet_attributes: %i[code language]]
     )
   end
 end

@@ -4,6 +4,13 @@
     <%= f.text_area :content, class: "section-content-field", placeholder: "Section content.." %>
     <%= f.label :section_image %> 
     <%= f.file_field :image %> 
+  </li>
+  <div class="code-snippet-container">
+    <%= f.fields_for :code_snippet do |f2| %> 
+      <%= render 'code_snippet_fields', f: f2 %> 
+    <% end %> 
+  </div>
+  <li>
     <%= f.hidden_field :_destroy, class: 'section-destroy' %>
     <%=  link_to 'delete section', '#', class:'delete-section-btn' %>
   </li>

@@ -1,0 +1,8 @@
+<% unless code_snippet.code.nil? or code_snippet.code.blank? %> 
+  <%= text_area code_snippet, :code,
+    class: "codemirror", 
+    data: { language: code_snippet.language ,
+            code: code_snippet.code
+          }
+  %> 
+<% end %> 

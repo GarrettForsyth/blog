@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 $max-width: 1200px;
 
+* {box-sizing: border-box}
+
+
 .container {
   max-width: $max-width;
   margin: auto;  
@@ -20,6 +23,11 @@ $max-width: 1200px;
 .hidden {
   display: none;
 }
+
+.codemirror {
+  text-align: left;
+}
+
 
 ul {
   list-style: none;

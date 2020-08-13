@@ -1,0 +1,19 @@
+<div class="code-snippet-fields">
+  <li>
+    <%= f.label :language %> 
+    <%= f.select :language, options_for_select([
+      "kotlin",
+      "java",
+      "groovy",
+      "ruby",
+      "html",
+      "css",
+      "scss",
+      "javascript"
+    ]), {}, class: "language-selector" %> 
+  </li>
+  <li>
+    <%= f.label :code %> 
+    <%= f.text_area :code, class: "code-field codemirror" %> 
+  </li>
+</div>
