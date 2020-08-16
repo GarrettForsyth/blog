@@ -4,7 +4,7 @@
     <%= entry.title %>
   </div>
   <div class="entry-date">
-    <%= entry.created_at.strftime("%Y-%m-%d") %> 
+    <%= entry.created_at.strftime("%d-%m-%Y") %> 
   </div>
   <div class="entry-links">
     <%= link_to 'view entry', entry_path(entry) %> 

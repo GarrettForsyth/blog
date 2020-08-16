@@ -37,13 +37,16 @@ import 'codemirror/mode/sql/sql.js'
 
 document.addEventListener("turbolinks:load", function () {
 
-  // Set up codemirror
+  /////////////////////
+  // CODE MIRROR SETUP
+  /////////////////////
   var codeMirrorElements = document.getElementsByClassName("codemirror");
 
   var codeMirrorOptions = {
       value: "fun helloWorld = println('hello, world!')",
       mode: "text/x-kotlin",
       lineWrapping: true,
+      viewportMargin: Infinity, // potentially very expensive. do not render BIG documents!
       autoRefresh: true
   }
 
@@ -59,10 +62,15 @@ document.addEventListener("turbolinks:load", function () {
     sql: "text/sql"
   }
 
+  // Initialize tags with codemirror class
+  var cm = null;
   for (var i = 0; i < codeMirrorElements.length; i++) {
     var el = codeMirrorElements[i]
     if (el.tagName && el.tagName.toLowerCase() == "textarea" ) {
       var editor = CodeMirror.fromTextArea(el, codeMirrorOptions);
+      editor.on('change', function (event) {
+        autoExpandCodeMirror(event)
+      }, false);
       var language = el.dataset["language"]
       var code = el.dataset["code"]
       if (language != null) {
@@ -71,8 +79,6 @@ document.addEventListener("turbolinks:load", function () {
       if (code != null) {
         editor.setOption("value", code)
       }
-    }else {
-      CodeMirror(el, codeMirrorOptions);
     }
   }
 
@@ -87,6 +93,43 @@ document.addEventListener("turbolinks:load", function () {
       editor.setOption("mode", language)
     })
   }
+
+  /////////////////////////
+  // END CODEMIRROR SETUP
+  /////////////////////////
+  
+  // Resizing text areas:
+  document.addEventListener('input', function (event) {
+	  if  (event.target.tagName.toLowerCase() !== 'textarea') return 
+    autoExpand(event.target);
+    }, false);
+
+  function autoExpand(field) {
+
+    // Reset field height
+    field.style.height = 'inherit';
+
+    // Get the computed styles for the element
+    var computed = window.getComputedStyle(field);
+
+    // Calculate the height
+    var height = parseInt(computed.getPropertyValue('border-top-width'), 10)
+                 + parseInt(computed.getPropertyValue('padding-top'), 10)
+                 + field.scrollHeight
+                 + parseInt(computed.getPropertyValue('padding-bottom'), 10)
+                 + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
+
+    field.style.height = height + 'px';
+
+  };
+
+  function autoExpandCodeMirror(editor) {
+
+    var doc = editor.doc
+    var buffer = 50; // height is only approximately correct
+    editor.setSize(null, doc.height + buffer)
+
+  };
 
   setDeleteSectionListeners();
 

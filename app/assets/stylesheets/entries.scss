@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 $max-width: 1200px;
+$accent-colour: #3bf54d;
+$error-colour: #cc3712;
 
 * {box-sizing: border-box}
 
@@ -9,23 +11,74 @@ $max-width: 1200px;
 .container {
   max-width: $max-width;
   margin: auto;  
-  text-align: center;
-  tr {
-    width: 100%;
-  }
-  td {
-    width: 20%;
-    display: table-cell;
-    padding: 0px 30px 10px 30px;
-  }
 }
 
 .hidden {
   display: none;
 }
 
+.inline {
+  display: inline-block;
+}
+
+#error_explanation {
+  font-size: 1.4em;
+  color: white;
+  background-color: $error-colour;
+  border-radius: 25px;
+  padding: 30px 30px 30px 80px;
+  li {
+    margin: 0;
+  }
+}
+
+.social {
+  margin-bottom: 20px;
+}
+
+.CodeMirror {
+  height: auto;
+}
+
+.pagination {
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.social {
+  table {
+    width: 100%;
+  }
+  tr {
+    width: 100%;
+  }
+  td {
+    width: 20%;
+    text-align: center;
+  }
+}
+
+.header-icon {
+  width: 30%;
+}
+
+.header-icon:hover {
+  filter: invert(98%) sepia(56%) saturate(5465%) hue-rotate(53deg) brightness(102%) contrast(92%);
+  transform: scale(1.1);
+}
+
+
+
 .codemirror {
   text-align: left;
+}
+
+.CodeMirror {
+  border: 1px solid #eee;
+  font-size: 1.3em;
+  height: auto;
 }
 
 
@@ -33,11 +86,15 @@ ul {
   list-style: none;
 }
 
+li {
+  margin-bottom: 20px;
+}
+
 label {
   display: block;
 }
 
-input {
+textarea {
   width: 100%;
 }
 
@@ -49,18 +106,14 @@ textarea {
   margin: auto;
   padding: 30px 0px 0px 10px;
   text-align: center;
+  img {
+    border: 2px solid black;
+  }
 }
+
 
 .title-field {
   font-size: 1.6em;
-}
-
-.abstract-field {
-  height: 300px;
-}
-
-.section-content-field {
-  height: 500px;
 }
 
 .submit-btn {
@@ -108,8 +161,6 @@ textarea {
 .entries-list {
   margin: 0 auto;
   padding: 0;
-  border-style: solid;
-  border-width: 2px;
 }
 
 .entry {
@@ -117,6 +168,7 @@ textarea {
   padding: 20px 5px 20px 5px;
   border-style: solid;
   border-width: 1px;
+  margin-bottom: 10px;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1.6em 0.9em 1.1em 1fr;
 
@@ -125,6 +177,8 @@ textarea {
     grid-row: 1/10;
     width: 100%;
     height: auto;
+    margin: 20px 15px 20px 15px;
+    padding-right: 50px;
   }
 
   .entry-title {
@@ -159,3 +213,20 @@ textarea {
     grid-row: 4/10;
   }
 }
+
+@media only screen and (max-width: 800px) {
+  .entry {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: $max-width) {
+  .entry-show-image {
+    width: 100%;
+  }
+
+  .section-image {
+    width: 100%;
+  }
+}
+

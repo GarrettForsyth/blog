@@ -3,11 +3,11 @@
   <ul>
     <li>
       <%= f.label :title %>
-      <%= f.text_field :title, class: "title-field", placeholder: "Entry title.." %>
+      <%= f.text_area :title, class: "title-field", placeholder: "Entry title.." %>
     </li>
     <li>
-      <%= f.label :title_image %> 
-      <%= f.file_field :image %> 
+      <%= f.label :title_image, class: "inline" %> 
+      <%= f.file_field :image, class: "inline" %> 
     </li>
     <li>
       <%= f.label :abstract %>
