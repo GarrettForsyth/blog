@@ -1,5 +1,5 @@
 <%= image_tag  section.display_image, class: "section-image" if section.image.attached? %> 
 <p class="section-content">
-  <%= section.content %> 
+  <%= raw section.content %> 
 </p>
 <%= render section.code_snippet if section.code_snippet %> 

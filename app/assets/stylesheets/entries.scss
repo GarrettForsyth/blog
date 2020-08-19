@@ -182,6 +182,9 @@ textarea {
   }
 
   .entry-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     grid-column: 2/3;
     grid-row: 1/1;
     padding-left: 10px;
