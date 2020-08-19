@@ -62,7 +62,6 @@ document.addEventListener("turbolinks:load", function () {
   };
 
   // Initialize tags with codemirror class
-  var cm = null;
   for (var i = 0; i < codeMirrorElements.length; i++) {
     var el = codeMirrorElements[i];
     if (el.tagName && el.tagName.toLowerCase() == "textarea") {
@@ -158,7 +157,14 @@ document.addEventListener("turbolinks:load", function () {
       );
       var newSection = allSections[allSections.length - 1];
       var newCodeField = newSection.getElementsByClassName("code-field")[0];
-      CodeMirror.fromTextArea(newCodeField, codeMirrorOptions);
+      var editor = CodeMirror.fromTextArea(newCodeField, codeMirrorOptions);
+      editor.on(
+        "change",
+        function (event) {
+          autoExpandCodeMirror(event);
+        },
+        false
+      );
       var newLanguageSelector = newSection.getElementsByClassName(
         "language-selector"
       )[0];
