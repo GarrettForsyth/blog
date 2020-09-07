@@ -26,6 +26,7 @@ import "codemirror/mode/xml/xml.js";
 import "codemirror/mode/css/css.js";
 import "codemirror/mode/javascript/javascript.js";
 import "codemirror/mode/sql/sql.js";
+import "codemirror/mode/shell/shell"
 import "../src/application.scss";
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -59,6 +60,7 @@ document.addEventListener("turbolinks:load", function () {
     scss: "text/scss",
     javascript: "text/javascript",
     sql: "text/sql",
+    bash: "text/x-sh"
   };
 
   // Initialize tags with codemirror class
